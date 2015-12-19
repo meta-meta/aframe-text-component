@@ -1,6 +1,10 @@
 /**
- * Example component for A-Frame.
+ * Text component for A-Frame.
  */
+require('./lib/FontUtils');
+require('./lib/TextGeometry');
+require('./lib/helvetiker_regular.typeface');
+
 module.exports.component = {
   schema: {
     bevelEnabled: { default: false },
@@ -20,7 +24,7 @@ module.exports.component = {
    * Generally modifies the entity based on the data.
    */
   update: function (oldData) {
-    this.el.object3D = getTextGeometry(data);
+    this.el.object3D = getTextGeometry(this.data);
   }
 };
 
