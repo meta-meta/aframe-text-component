@@ -11,7 +11,7 @@ module.exports.component = {
     bevelSize: { default: 8, min: 0 },
     bevelThickness: { default: 12, min: 0 },
     curveSegments: { default: 12, min: 0 },
-    font: { default: 'helvetiker', min: 0 },
+    font: { default: 'helvetiker' },
     height: { default: 0.05, min: 0 },
     size: { default: 0.5, min: 0 },
     style: { default: 'normal', oneOf: [ 'normal', 'italics' ] },
