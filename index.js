@@ -12,8 +12,8 @@ module.exports.component = {
     bevelThickness: { default: 12, min: 0 },
     curveSegments: { default: 12, min: 0 },
     font: { default: 'helvetiker', min: 0 },
-    height: { default: 50, min: 0 },
-    size: { default: 12, min: 0 },
+    height: { default: 0.05, min: 0 },
+    size: { default: 0.5, min: 0 },
     style: { default: 'normal', oneOf: [ 'normal', 'italics' ] },
     text: { default: '' },
     weight: { default: 'normal', oneOf: [ 'normal', 'bold' ] }
@@ -24,7 +24,7 @@ module.exports.component = {
    * Generally modifies the entity based on the data.
    */
   update: function (oldData) {
-    this.el.object3D = getTextGeometry(this.data);
+    this.el.object3D.geometry = getTextGeometry(this.data);
   }
 };
 
