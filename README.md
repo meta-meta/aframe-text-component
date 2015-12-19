@@ -25,6 +25,51 @@ Use.
 </a-scene>
 ```
 
+## Using Different Fonts
+
+The text component uses `typeface.js`, fonts defined in JS files for three.js.
+typeface fonts can be generated from regular fonts using this [typeface
+font generator](http://gero3.github.io/facetype.js/). You can also find some
+sample generated fonts, currently in the `examples/fonts` directory in the [three.js
+repository](https://github.com/mrdoob/three.js).
+
+By default, the text component only comes with one typeface font, Helvetiker
+(Regular). Each font is fairly large, from at least 60KB to hundreds of KBs.
+
+To include a font for use with the text component, append or require the
+typeface font *after* this component. This component uses `FontUtils` which
+should be initialized before adding fonts.
+
+For example in HTML:
+
+```html
+<html>
+  <head>
+    <script src="aframe-core.js"></script>
+    <script src="aframe-text-component.js"></script>
+    <script src="myfont.typeface.js"></script>
+  </head>
+  <body>
+    <a-assets>
+      <a-mixin id="font" text="font: myfont"></a-mixin>
+    </a-assets>
+    <a-entity mixin="font" text="text: Hello"></a-entity>
+    <a-entity mixin="font" text="text: World"></a-entity>
+  </body>
+</html>
+```
+
+Or in JS:
+
+```js
+var AFrame = require('aframe-core');
+var textComponent = require('aframe-text-component');
+AFrame.registerComponent('text', textComponent);
+require('./fonts/myfont.typeface');
+```
+
+## Properties
+
 | Property | Description | Default Value |
 | -------- | ----------- | ------------- |
 | bevelEnabled |             | false              |
