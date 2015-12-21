@@ -23,7 +23,7 @@ Use.
 
 ```html
 <a-scene>
-  <a-entity text="text: Hello, World!"></a-entity>
+  <a-entity text="text: Hello, World!" material="color: blue"></a-entity>
 </a-scene>
 ```
 
