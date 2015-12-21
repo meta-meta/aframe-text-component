@@ -51,7 +51,11 @@
 	    return;
 	  }
 	  // Register all components here.
-	  AFRAME.registerComponent(__webpack_require__(1).component);
+	  if (AFRAME.aframeCore) {
+	    AFRAME.aframeCore.registerComponent(__webpack_require__(1).component);
+	  } else {
+	    AFRAME.registerComponent(__webpack_require__(1).component);
+	  }
 	})();
 
 

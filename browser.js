@@ -5,5 +5,9 @@
     return;
   }
   // Register all components here.
-  AFRAME.registerComponent(require('./index').component);
+  if (AFRAME.aframeCore) {
+    AFRAME.aframeCore.registerComponent(require('./index').component);
+  } else {
+    AFRAME.registerComponent(require('./index').component);
+  }
 })();
