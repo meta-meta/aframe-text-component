@@ -6,8 +6,8 @@
   }
   // Register all components here.
   if (AFRAME.aframeCore) {
-    AFRAME.aframeCore.registerComponent(require('./index').component);
+    AFRAME.aframeCore.registerComponent('text', require('./index').component);
   } else {
-    AFRAME.registerComponent(require('./index').component);
+    AFRAME.registerComponent('text', require('./index').component);
   }
 })();
