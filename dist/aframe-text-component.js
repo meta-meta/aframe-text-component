@@ -50,12 +50,19 @@
 	    console.error('Component attempted to register before AFRAME was available.');
 	    return;
 	  }
+
 	  // Register all components here.
-	  if (AFRAME.aframeCore) {
-	    AFRAME.aframeCore.registerComponent('text', __webpack_require__(1).component);
-	  } else {
-	    AFRAME.registerComponent('text', __webpack_require__(1).component);
-	  }
+	  var components = {
+	    text: __webpack_require__(1).component
+	  };
+
+	  Object.keys(components).forEach(function (name) {
+	    if (AFRAME.aframeCore) {
+	      AFRAME.aframeCore.registerComponent(name, components[name]);
+	    } else {
+	      AFRAME.registerComponent(name, components[name]);
+	    }
+	  });
 	})();
 
 
