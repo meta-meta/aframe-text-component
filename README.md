@@ -1,6 +1,7 @@
 ## aframe-text-component
 
-A text component for [A-Frame](https://aframe.io) VR.
+A text geometry component for [A-Frame](https://aframe.io) VR. The text geometry
+component (shape) can be paired with the [material component](https://aframe.io/docs/components/material.html) (appearance).
 
 ![screenshot](https://cloud.githubusercontent.com/assets/674727/11915616/59342aca-a663-11e5-9b6b-8a0b243fe5da.png)
 
