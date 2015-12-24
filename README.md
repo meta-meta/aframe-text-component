@@ -17,7 +17,7 @@ Register.
 
 ```js
 AFrame = require('aframe-core');
-AFrame.registerComponent('text', require('aframe-text-component'));
+AFrame.registerComponent('text', require('aframe-text-component').component);
 ```
 
 Use.
