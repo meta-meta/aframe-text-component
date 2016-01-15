@@ -24,7 +24,7 @@ module.exports.component = {
    * Generally modifies the entity based on the data.
    */
   update: function (oldData) {
-    this.el.object3D.geometry = getTextGeometry(this.data);
+    this.el.getObject3D('mesh').geometry = getTextGeometry(this.data);
   }
 };
 
