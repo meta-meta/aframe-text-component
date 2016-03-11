@@ -5,7 +5,7 @@ require('./lib/FontUtils');
 require('./lib/TextGeometry');
 require('./lib/helvetiker_regular.typeface');
 
-module.exports.component = {
+AFRAME.registerComponent('text', {
   schema: {
     bevelEnabled: { default: false },
     bevelSize: { default: 8, min: 0 },
@@ -26,7 +26,7 @@ module.exports.component = {
   update: function (oldData) {
     this.el.getOrCreateObject3D('mesh', THREE.Mesh).geometry = getTextGeometry(this.data);
   }
-};
+});
 
 function getTextGeometry (data) {
   return new THREE.TextGeometry(data.text, data);

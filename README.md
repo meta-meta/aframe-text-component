@@ -5,6 +5,41 @@ component (shape) can be paired with the [material component](https://aframe.io/
 
 ![screenshot](https://cloud.githubusercontent.com/assets/674727/11915616/59342aca-a663-11e5-9b6b-8a0b243fe5da.png)
 
+### Usage
+
+#### Browser Installation
+
+Install and use by directly including the [browser files](dist):
+
+```html
+<head>
+  <title>My A-Frame Scene</title>
+  <script src="https://aframe.io/releases/latest/aframe.min.js"></script>
+  <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
+</head>
+
+<body>
+  <a-scene>
+    <a-entity text="text: What's up"></a-entity>
+  </a-scene>
+</body>
+```
+
+#### NPM Installation
+
+Install via NPM:
+
+```bash
+npm install aframe-text-component
+```
+
+Then register and use.
+
+```js
+require('aframe');
+require('aframe-text-component');
+```
+
 ## Usage
 
 Install.
@@ -16,8 +51,8 @@ npm install aframe-text-component
 Register.
 
 ```js
-AFrame = require('aframe-core');
-AFrame.registerComponent('text', require('aframe-text-component').component);
+require('aframe');
+require('aframe-text-component');
 ```
 
 Use.
@@ -65,23 +100,21 @@ For example in HTML:
 Or in JS:
 
 ```js
-var AFrame = require('aframe-core');
-var textComponent = require('aframe-text-component');
-AFrame.registerComponent('text', textComponent);
+require('aframe');
+require('aframe-text-component');
 require('./fonts/myfont.typeface');
 ```
 
 ## Properties
 
-| Property | Description | Default Value |
-| -------- | ----------- | ------------- |
-| bevelEnabled |             | false              |
-| bevelSize |             | 8              |
-| bevelThickness |             | 12              |
-| curveSegments |             | 12              |
-| font |             | helvetiker              |
-| height |             | 0.05              |
-| size |             | 0.5              |
-| style |             | normal              |
-| text |             | None              |
-| weight |             | normal              |
+| Property       | Description | Default Value |
+| --------       | ----------- | ------------- |
+| bevelEnabled   |             | false         |
+| bevelSize      |             | 8             |
+| bevelThickness |             | 12            |
+| curveSegments  |             | 12            |
+| font           |             | helvetiker    |
+| height         |             | 0.05          |
+| size           |             | 0.5           |
+| style          |             | normal        |
+| text           |             | None          |
