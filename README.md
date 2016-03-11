@@ -16,7 +16,7 @@ Install and use by directly including the [browser files](dist):
 ```html
 <head>
   <title>My A-Frame Scene</title>
-  <script src="https://aframe.io/releases/latest/aframe.min.js"></script>
+  <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe.min.js"></script>
   <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
 </head>
 
