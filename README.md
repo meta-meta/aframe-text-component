@@ -1,5 +1,7 @@
 ## aframe-text-component
 
+> Currently working with [release candidate builds of A-Frame](https://github.com/aframevr/aframe/tree/master/dist). Use https://github.com/ngokevin/aframe-text-component/commit/4e0ce354cb688b27a93eee05180a95ca3763b63e for A-Frame 0.1.2.
+
 A text geometry component for [A-Frame](https://aframe.io) VR. The text geometry
 component (shape) can be paired with the [material component](https://aframe.io/docs/components/material.html) (appearance).
 
