@@ -1,11 +1,23 @@
 ## aframe-text-component
 
-> Currently working with [release candidate builds of A-Frame](https://github.com/aframevr/aframe/tree/master/dist). Use https://github.com/ngokevin/aframe-text-component/commit/4e0ce354cb688b27a93eee05180a95ca3763b63e for A-Frame 0.1.2.
-
 A text geometry component for [A-Frame](https://aframe.io) VR. The text geometry
 component (shape) can be paired with the [material component](https://aframe.io/docs/components/material.html) (appearance).
 
 ![screenshot](https://cloud.githubusercontent.com/assets/674727/11915616/59342aca-a663-11e5-9b6b-8a0b243fe5da.png)
+
+## Properties
+
+| Property       | Description | Default Value |
+| --------       | ----------- | ------------- |
+| bevelEnabled   |             | false         |
+| bevelSize      |             | 8             |
+| bevelThickness |             | 12            |
+| curveSegments  |             | 12            |
+| font           |             | helvetiker    |
+| height         |             | 0.05          |
+| size           |             | 0.5           |
+| style          |             | normal        |
+| text           |             | None          |
 
 ### Usage
 
@@ -16,7 +28,7 @@ Install and use by directly including the [browser files](dist):
 ```html
 <head>
   <title>My A-Frame Scene</title>
-  <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/0.2.0/aframe.min.js"></script>
   <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
 </head>
 
@@ -42,29 +54,6 @@ require('aframe');
 require('aframe-text-component');
 ```
 
-## Usage
-
-Install.
-
-```bash
-npm install aframe-text-component
-```
-
-Register.
-
-```js
-require('aframe');
-require('aframe-text-component');
-```
-
-Use.
-
-```html
-<a-scene>
-  <a-entity text="text: Hello, World!" material="color: blue"></a-entity>
-</a-scene>
-```
-
 ## Using Different Fonts
 
 The text component uses `typeface.js`, fonts defined in JS files for three.js.
@@ -85,16 +74,19 @@ For example in HTML:
 ```html
 <html>
   <head>
-    <script src="aframe-core.js"></script>
-    <script src="aframe-text-component.js"></script>
+    <title>My A-Frame Scene</title>
+    <script src="https://aframe.io/releases/0.2.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
     <script src="myfont.typeface.js"></script>
   </head>
   <body>
-    <a-assets>
-      <a-mixin id="font" text="font: myfont"></a-mixin>
-    </a-assets>
-    <a-entity mixin="font" text="text: Hello"></a-entity>
-    <a-entity mixin="font" text="text: World"></a-entity>
+    <a-scene>
+      <a-assets>
+        <a-mixin id="font" text="font: myfont"></a-mixin>
+      </a-assets>
+      <a-entity mixin="font" text="text: Hello"></a-entity>
+      <a-entity mixin="font" text="text: World"></a-entity>
+    </a-scene>
   </body>
 </html>
 ```
@@ -106,17 +98,3 @@ require('aframe');
 require('aframe-text-component');
 require('./fonts/myfont.typeface');
 ```
-
-## Properties
-
-| Property       | Description | Default Value |
-| --------       | ----------- | ------------- |
-| bevelEnabled   |             | false         |
-| bevelSize      |             | 8             |
-| bevelThickness |             | 12            |
-| curveSegments  |             | 12            |
-| font           |             | helvetiker    |
-| height         |             | 0.05          |
-| size           |             | 0.5           |
-| style          |             | normal        |
-| text           |             | None          |
