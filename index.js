@@ -4,6 +4,7 @@
 require('./lib/FontUtils');
 require('./lib/TextGeometry');
 require('./lib/helvetiker_regular.typeface');
+var hash = require('object-hash');
 
 module.exports.component = {
   schema: {
@@ -19,12 +20,19 @@ module.exports.component = {
     weight: { default: 'normal', oneOf: [ 'normal', 'bold' ] }
   },
 
+  init: function () {
+    window.aframeTextGeometryCache = {};
+  },
+
   /**
    * Called when component is attached and when component data changes.
    * Generally modifies the entity based on the data.
    */
   update: function (oldData) {
-    this.el.getOrCreateObject3D('mesh', THREE.Mesh).geometry = getTextGeometry(this.data);
+    var dataKey = hash(this.data);
+    var geometry = aframeTextGeometryCache[dataKey] || getTextGeometry(this.data);
+    aframeTextGeometryCache[dataKey] = geometry;
+    this.el.object3D.geometry = geometry;
   }
 };
 
