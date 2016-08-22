@@ -6,6 +6,19 @@ require('./lib/TextGeometry');
 require('./lib/helvetiker_regular.typeface');
 var hash = require('object-hash');
 
+AFRAME.registerSystem('text', {
+  init: function () {
+    this.geometryCache = {};
+  },
+
+  getOrCreateTextGeometry: function (data) {
+    var dataKey = hash(data);
+    var geometry = this.geometryCache[dataKey] || getTextGeometry(data);
+    this.geometryCache[dataKey] = geometry;
+    return geometry;
+  }
+});
+
 AFRAME.registerComponent('text', {
   schema: {
     bevelEnabled: { default: false },
@@ -20,19 +33,12 @@ AFRAME.registerComponent('text', {
     weight: { default: 'normal', oneOf: [ 'normal', 'bold' ] }
   },
 
-  init: function () {
-    window.aframeTextGeometryCache = {};
-  },
-
   /**
    * Called when component is attached and when component data changes.
    * Generally modifies the entity based on the data.
    */
   update: function (oldData) {
-    var dataKey = hash(this.data);
-    var geometry = aframeTextGeometryCache[dataKey] || getTextGeometry(this.data);
-    aframeTextGeometryCache[dataKey] = geometry;
-    this.el.getOrCreateObject3D('mesh', THREE.Mesh).geometry = geometry;
+    this.el.getOrCreateObject3D('mesh', THREE.Mesh).geometry = this.system.getOrCreateTextGeometry(this.data);
   }
 });
 
